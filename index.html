@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galería Exclusiva</title>
+<title>Galería Premium</title>
 
 <style>
 body {
@@ -51,16 +51,31 @@ header {
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: 0.3s;
+    text-align: center;
+    padding: 10px;
 }
 
 .item:hover .overlay {
     opacity: 1;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ff3366;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #ddd;
 }
 
 .whatsapp {
@@ -96,32 +111,50 @@ header {
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?woman,latina,portrait">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Elegancia Latina</div>
+            <div class="description">Retrato natural con estilo moderno.</div>
+        </div>
     </div>
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?woman,model,fashion">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Moda Urbana</div>
+            <div class="description">Inspiración de ciudad y tendencias.</div>
+        </div>
     </div>
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?girl,smile,portrait">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Sonrisa Natural</div>
+            <div class="description">Momentos espontáneos y reales.</div>
+        </div>
     </div>
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?woman,beauty,style">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Belleza Clásica</div>
+            <div class="description">Estética limpia y elegante.</div>
+        </div>
     </div>
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?latina,model,outdoor">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Aire Libre</div>
+            <div class="description">Fotografía en exteriores con luz natural.</div>
+        </div>
     </div>
 
     <div class="item">
         <img src="https://source.unsplash.com/300x400/?woman,portrait,city">
-        <div class="overlay">Ver</div>
+        <div class="overlay">
+            <div class="title">Estilo Urbano</div>
+            <div class="description">Retratos con esencia de ciudad.</div>
+        </div>
     </div>
 
 </div>
