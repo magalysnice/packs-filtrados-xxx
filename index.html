@@ -5,17 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galería Premium</title>
 
-<script>
-  atOptions = {
-    'key' : '4943b7686a2efec9892de7eb11517d49',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://matcheshonoraryunderwater.com/4943b7686a2efec9892de7eb11517d49/invoke.js"></script>
-
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -32,12 +21,17 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .logo {
     font-size: 2rem;
     color: #ff3366;
+}
+
+.ad {
+    text-align: center;
+    margin: 20px 0;
 }
 
 .grid {
@@ -118,6 +112,11 @@ header {
     <p>Comparte en WhatsApp para unirte al grupo privado</p>
 </header>
 
+<!-- 🔝 ANUNCIO 1 (alta visibilidad) -->
+<div class="ad">
+<script src="https://matcheshonoraryunderwater.com/c0/a5/74/c0a574827c2af59983f540dfaef9e428.js"></script>
+</div>
+
 <div class="grid">
 
     <div class="item">
@@ -170,6 +169,20 @@ header {
 
 </div>
 
+<!-- 🔻 ANUNCIO 2 (antes del CTA) -->
+<div class="ad">
+<script>
+atOptions = {
+    'key' : '1e0acf38e1ad0d86b38367d3c996c7b5',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+};
+</script>
+<script src="https://matcheshonoraryunderwater.com/1e0acf38e1ad0d86b38367d3c996c7b5/invoke.js"></script>
+</div>
+
 <button class="whatsapp" onclick="compartirWhatsApp()">📲 Compartir en WhatsApp</button>
 
 <div class="footer">© 2026 Galería</div>
@@ -177,56 +190,41 @@ header {
 </div>
 
 <script>
-// Compartir WhatsApp
+// WhatsApp
 function compartirWhatsApp() {
-    const mensaje = "Mira esta galería de packs filtrados😈📸 " + window.location.href;
+    const mensaje = "Mira esta galería 📸 " + window.location.href;
     const url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
 
-// Lista de imágenes
+// Lista imágenes
 const imagenes = [
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHFczcxbsAAqTgr.jpg",
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHFKBQfa0AALGdx.jpg",
 "https://gruposycanales.website/wp-content/uploads/2026/04/HG7oEdIbUAAsyOK.jpg",
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHIHpVebAAAZ6hk.jpg",
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHE5a9OaIAAOIG4.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHJqrBaWUAAt_Kx.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHBl_hgbEAAnvX3.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHI67GRWoAA0j8v.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHFYWtIbIAAOrlh.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHE76ZAa0AAWxrn.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHGLa7ga8AA7F0s.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHC9J6RbIAAxlNY.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHFtUIGbkAAS__l.jpg",
-"https://gruposycanales.website/wp-content/uploads/2026/04/HHGOJQOW4AAKQqi.jpg"
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHLHNmxWoAAZzLO.jpg"
 ];
 
-// Cambiar imágenes
 function cambiarImagenes() {
-    const imgs = document.querySelectorAll(".item img");
-
-    imgs.forEach(img => {
+    document.querySelectorAll(".item img").forEach(img => {
         const random = imagenes[Math.floor(Math.random() * imagenes.length)];
-        img.src = random + "?t=" + new Date().getTime();
+        img.src = random + "?t=" + Date.now();
     });
 }
 
-// Mezclar posiciones
 function mezclarGrid() {
     const grid = document.querySelector(".grid");
     const items = Array.from(grid.children);
-
     items.sort(() => Math.random() - 0.5);
-    items.forEach(item => grid.appendChild(item));
+    items.forEach(el => grid.appendChild(el));
 }
 
-// Ejecutar cada 4 segundos
 setInterval(() => {
     cambiarImagenes();
     mezclarGrid();
 }, 4000);
-
 </script>
 
 </body>
