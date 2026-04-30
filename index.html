@@ -45,6 +45,7 @@ header {
     height: 250px;
     border-radius: 10px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .item img {
@@ -83,18 +84,6 @@ header {
     color: #ddd;
 }
 
-.whatsapp {
-    margin-top: 25px;
-    padding: 15px;
-    background: #25D366;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-}
-
 .footer {
     margin-top: 40px;
     text-align: center;
@@ -109,10 +98,10 @@ header {
 
 <header>
     <div class="logo">Galería Premium</div>
-    <p>Comparte en WhatsApp para unirte al grupo privado</p>
+    <p>Haz click en cualquier imagen para unirte 🔥</p>
 </header>
 
-<!-- 🔝 ANUNCIO 1 -->
+<!-- 🔝 ANUNCIO -->
 <div class="ad">
 <script>
 atOptions = {
@@ -132,7 +121,7 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HHFczcxbsAAqTgr.jpg">
 <div class="overlay">
 <div class="title">Your new obsession</div>
-<div class="description">Retrato natural con estilo moderno.</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
@@ -140,7 +129,7 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HHFKBQfa0AALGdx.jpg">
 <div class="overlay">
 <div class="title">Moda Urbana</div>
-<div class="description">😉🦋</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
@@ -148,7 +137,7 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HG7oEdIbUAAsyOK.jpg">
 <div class="overlay">
 <div class="title">Sonrisa Natural</div>
-<div class="description">Urge playa 🌊</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
@@ -156,7 +145,7 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HHIHpVebAAAZ6hk.jpg">
 <div class="overlay">
 <div class="title">Belleza Clásica</div>
-<div class="description">Lash time😉</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
@@ -164,7 +153,7 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HHE5a9OaIAAOIG4.jpg">
 <div class="overlay">
 <div class="title">Aire Libre</div>
-<div class="description">Amo el gym</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
@@ -172,13 +161,13 @@ atOptions = {
 <img src="https://gruposycanales.website/wp-content/uploads/2026/04/HHLHNmxWoAAZzLO.jpg">
 <div class="overlay">
 <div class="title">Estilo Urbano</div>
-<div class="description">Wataa</div>
+<div class="description">Toca para acceder</div>
 </div>
 </div>
 
 </div>
 
-<!-- 🔻 ANUNCIO 2 -->
+<!-- 🔻 ANUNCIO -->
 <div class="ad">
 <script>
 atOptions = {
@@ -194,21 +183,27 @@ atOptions = {
 <script src="https://matcheshonoraryunderwater.com/c0/a5/74/c0a574827c2af59983f540dfaef9e428.js"></script>
 </div>
 
-<button class="whatsapp" onclick="compartirWhatsApp()">📲 Compartir en WhatsApp</button>
-
 <div class="footer">© 2026 Galería</div>
 
 </div>
 
 <script>
-// WhatsApp (FIXED)
+// 👉 Compartir WhatsApp
 function compartirWhatsApp() {
-    const mensaje = "Únete a mi grupo 🔥 se vale de todo 😈 Mira esta galería 📸 👉 " + window.location.href;
+    const mensaje = "🔥 Comparte en un grupo para unirte 😈 👉 " + window.location.href;
     const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
 
-// Lista imágenes
+// 👉 Click en imágenes
+document.querySelectorAll(".item").forEach(item => {
+    item.addEventListener("click", () => {
+        alert("📲 Comparte en un grupo para unirte");
+        compartirWhatsApp();
+    });
+});
+
+// Lista de imágenes
 const imagenes = [
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHFtUIGbkAAS__l.jpg",
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHGOJQOW4AAKQqi.jpg",
@@ -227,7 +222,7 @@ const imagenes = [
 "https://gruposycanales.website/wp-content/uploads/2026/04/HHFczcxbsAAqTgr.jpg"
 ];
 
-// cambiar imágenes
+// Cambiar imágenes
 function cambiarImagenes() {
     document.querySelectorAll(".item img").forEach(img => {
         const random = imagenes[Math.floor(Math.random() * imagenes.length)];
@@ -235,7 +230,7 @@ function cambiarImagenes() {
     });
 }
 
-// mezclar posiciones
+// Mezclar posiciones
 function mezclarGrid() {
     const grid = document.querySelector(".grid");
     const items = Array.from(grid.children);
@@ -243,7 +238,7 @@ function mezclarGrid() {
     items.forEach(el => grid.appendChild(el));
 }
 
-// auto loop
+// Loop automático
 setInterval(() => {
     cambiarImagenes();
     mezclarGrid();
