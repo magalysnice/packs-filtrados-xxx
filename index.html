@@ -1,85 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso Exclusivo - Club Privado 🔞</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Privado 🔞</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #2d0b0b);
-            color: white;
-            margin: 0;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #2d0b0b);
+    color: white;
+    margin: 0;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .logo {
-            font-size: 2rem;
-            color: #ff3366;
-        }
+.logo {
+    font-size: 2rem;
+    color: #ff3366;
+}
 
-        .content-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
 
-        .content-item {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
+.item {
+    position: relative;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
 
-        .content-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.item img,
+.item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: 0.3s;
-        }
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
 
-        .content-item:hover .overlay {
-            opacity: 1;
-        }
+.item:hover .overlay {
+    opacity: 1;
+}
 
-        .share-button {
-            margin-top: 30px;
-            padding: 15px;
-            background: #ff3366;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            color: white;
-        }
+button {
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #aaa;
-        }
-    </style>
+/* botones */
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.add-btn {
+    background: #ff3366;
+    color: white;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #aaa;
+}
+</style>
 </head>
 
 <body>
@@ -88,37 +99,70 @@
 
 <header>
     <div class="logo">Club Privado 🔞</div>
-    <p>Acceso exclusivo</p>
+    <p>Contenido exclusivo</p>
 </header>
 
-<section class="content-preview">
-    <div class="content-item">
+<!-- CONTENIDO -->
+<div class="grid" id="content">
+
+    <!-- EJEMPLO IMAGEN -->
+    <div class="item">
         <img src="https://picsum.photos/300/400?1">
-        <div class="overlay">▶️ Video 1</div>
+        <div class="overlay">Imagen</div>
     </div>
 
-    <div class="content-item">
-        <img src="https://picsum.photos/300/400?2">
-        <div class="overlay">▶️ Video 2</div>
+    <!-- EJEMPLO VIDEO -->
+    <div class="item">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted></video>
+        <div class="overlay">Video</div>
     </div>
 
-    <div class="content-item">
-        <img src="https://picsum.photos/300/400?3">
-        <div class="overlay">▶️ Video 3</div>
-    </div>
-</section>
-
-<button class="share-button" onclick="share()">Compartir para desbloquear</button>
-
-<div class="footer">
-    © 2026 Club Privado
 </div>
+
+<!-- BOTONES -->
+<button class="add-btn" onclick="agregarContenido()">➕ Agregar imagen/video</button>
+<button class="whatsapp" onclick="compartirWhatsApp()">📲 Compartir en WhatsApp</button>
+
+<div class="footer">© 2026</div>
 
 </div>
 
 <script>
-function share() {
-    alert("Función de compartir simulada 🚀");
+function agregarContenido() {
+    const tipo = prompt("Escribe: imagen o video");
+
+    if (!tipo) return;
+
+    const url = prompt("Pega la URL del contenido:");
+
+    if (!url) return;
+
+    const contenedor = document.getElementById("content");
+    const div = document.createElement("div");
+    div.className = "item";
+
+    if (tipo.toLowerCase() === "imagen") {
+        div.innerHTML = `
+            <img src="${url}">
+            <div class="overlay">Imagen</div>
+        `;
+    } else if (tipo.toLowerCase() === "video") {
+        div.innerHTML = `
+            <video src="${url}" muted></video>
+            <div class="overlay">Video</div>
+        `;
+    } else {
+        alert("Tipo no válido");
+        return;
+    }
+
+    contenedor.appendChild(div);
+}
+
+function compartirWhatsApp() {
+    const mensaje = "Mira este contenido 🔥 " + window.location.href;
+    const url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
 }
 </script>
 
