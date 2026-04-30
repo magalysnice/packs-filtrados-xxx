@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Club Privado 🔞</title>
+<title>Galería Exclusiva</title>
 
 <style>
 body {
@@ -40,11 +40,9 @@ header {
     height: 250px;
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
 }
 
-.item img,
-.item video {
+.item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -53,7 +51,7 @@ header {
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,24 +63,16 @@ header {
     opacity: 1;
 }
 
-button {
-    margin-top: 20px;
+.whatsapp {
+    margin-top: 25px;
     padding: 15px;
+    background: #25D366;
     border: none;
     border-radius: 10px;
+    color: white;
     cursor: pointer;
+    width: 100%;
     font-size: 1rem;
-}
-
-/* botones */
-.whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-.add-btn {
-    background: #ff3366;
-    color: white;
 }
 
 .footer {
@@ -98,69 +88,53 @@ button {
 <div class="container">
 
 <header>
-    <div class="logo">Club Privado 🔞</div>
-    <p>Contenido exclusivo</p>
+    <div class="logo">Galería Premium</div>
+    <p>Fotos estilo moda y lifestyle</p>
 </header>
 
-<!-- CONTENIDO -->
-<div class="grid" id="content">
+<div class="grid">
 
-    <!-- EJEMPLO IMAGEN -->
     <div class="item">
-        <img src="https://picsum.photos/300/400?1">
-        <div class="overlay">Imagen</div>
+        <img src="https://source.unsplash.com/300x400/?woman,latina,portrait">
+        <div class="overlay">Ver</div>
     </div>
 
-    <!-- EJEMPLO VIDEO -->
     <div class="item">
-        <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted></video>
-        <div class="overlay">Video</div>
+        <img src="https://source.unsplash.com/300x400/?woman,model,fashion">
+        <div class="overlay">Ver</div>
+    </div>
+
+    <div class="item">
+        <img src="https://source.unsplash.com/300x400/?girl,smile,portrait">
+        <div class="overlay">Ver</div>
+    </div>
+
+    <div class="item">
+        <img src="https://source.unsplash.com/300x400/?woman,beauty,style">
+        <div class="overlay">Ver</div>
+    </div>
+
+    <div class="item">
+        <img src="https://source.unsplash.com/300x400/?latina,model,outdoor">
+        <div class="overlay">Ver</div>
+    </div>
+
+    <div class="item">
+        <img src="https://source.unsplash.com/300x400/?woman,portrait,city">
+        <div class="overlay">Ver</div>
     </div>
 
 </div>
 
-<!-- BOTONES -->
-<button class="add-btn" onclick="agregarContenido()">➕ Agregar imagen/video</button>
 <button class="whatsapp" onclick="compartirWhatsApp()">📲 Compartir en WhatsApp</button>
 
-<div class="footer">© 2026</div>
+<div class="footer">© 2026 Galería</div>
 
 </div>
 
 <script>
-function agregarContenido() {
-    const tipo = prompt("Escribe: imagen o video");
-
-    if (!tipo) return;
-
-    const url = prompt("Pega la URL del contenido:");
-
-    if (!url) return;
-
-    const contenedor = document.getElementById("content");
-    const div = document.createElement("div");
-    div.className = "item";
-
-    if (tipo.toLowerCase() === "imagen") {
-        div.innerHTML = `
-            <img src="${url}">
-            <div class="overlay">Imagen</div>
-        `;
-    } else if (tipo.toLowerCase() === "video") {
-        div.innerHTML = `
-            <video src="${url}" muted></video>
-            <div class="overlay">Video</div>
-        `;
-    } else {
-        alert("Tipo no válido");
-        return;
-    }
-
-    contenedor.appendChild(div);
-}
-
 function compartirWhatsApp() {
-    const mensaje = "Mira este contenido 🔥 " + window.location.href;
+    const mensaje = "Mira esta galería 📸 " + window.location.href;
     const url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
