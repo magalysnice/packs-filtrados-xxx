@@ -166,11 +166,56 @@ header {
 </div>
 
 <script>
+// Compartir WhatsApp
 function compartirWhatsApp() {
     const mensaje = "Mira esta galería 📸 " + window.location.href;
     const url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
+
+// Lista de imágenes
+const imagenes = [
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHFczcxbsAAqTgr.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHFKBQfa0AALGdx.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HG7oEdIbUAAsyOK.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHIHpVebAAAZ6hk.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHE5a9OaIAAOIG4.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHJqrBaWUAAt_Kx.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHBl_hgbEAAnvX3.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHI67GRWoAA0j8v.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHFYWtIbIAAOrlh.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHE76ZAa0AAWxrn.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHGLa7ga8AA7F0s.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHC9J6RbIAAxlNY.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHFtUIGbkAAS__l.jpg",
+"https://gruposycanales.website/wp-content/uploads/2026/04/HHGOJQOW4AAKQqi.jpg"
+];
+
+// Cambiar imágenes
+function cambiarImagenes() {
+    const imgs = document.querySelectorAll(".item img");
+
+    imgs.forEach(img => {
+        const random = imagenes[Math.floor(Math.random() * imagenes.length)];
+        img.src = random + "?t=" + new Date().getTime();
+    });
+}
+
+// Mezclar posiciones
+function mezclarGrid() {
+    const grid = document.querySelector(".grid");
+    const items = Array.from(grid.children);
+
+    items.sort(() => Math.random() - 0.5);
+    items.forEach(item => grid.appendChild(item));
+}
+
+// Ejecutar cada 4 segundos
+setInterval(() => {
+    cambiarImagenes();
+    mezclarGrid();
+}, 4000);
+
 </script>
 
 </body>
